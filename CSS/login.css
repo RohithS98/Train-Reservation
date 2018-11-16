@@ -14,7 +14,7 @@ input[type=text]:focus, input[type=password]:focus {
     outline: none;
 }
 /* Set a style for all buttons */
-button {
+.button {
     background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
@@ -23,7 +23,7 @@ button {
     cursor: pointer;
     width: 100%;
 }
-button:hover {
+.button:hover {
     opacity: 0.8;
 }
 /* Center the image and position the close button */

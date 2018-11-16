@@ -1,15 +1,57 @@
+<?php
+session_start();
+if (isset($_POST['submitbutton']))
+{
+	$conn = mysqli_connect("localhost","root","25285618","traindb");
+if(!$conn){
+	echo "<script type='text/javascript'>alert('Database failed');</script>";
+  	die('Could not connect: '.mysqli_connect_error());
+}
+$username=$_POST['uname'];
+$password=$_POST['pwd'];
+$sql = "SELECT * FROM userdetails WHERE user = '$username' AND psw = '$password';";
+$sql_result = mysqli_query ($conn, $sql) or die ('request "Could not execute SQL query" '.$sql);
+		$user = mysqli_fetch_assoc($sql_result);
+		if(!empty($user)){
+			$_SESSION['user_info'] = $user['user'];
+			$message='Logged in successfully';
+		}
+		else{
+			$message = 'Wrong username or password.';
+		}
+	echo "<script type='text/javascript'>alert('$message');</script>";
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="CSS/login.css">
+<script type="text/javascript">
+	function validate()	{
+		var uname1=document.getElementById("uname");
+		var pwd1=document.getElementById("pwd");
+		if (uname1.value.length<6)
+		{
+        	alert("Enter valid username");
+			uname.focus();
+        	return false;
+   		}
+   		if(pwd1.value.length< 4)
+		{
+			alert("Password consists of atleast 4 characters");
+			pwd.focus();
+			return false;
+		}
+		return true;
+	}
+</script>
 <title>Railway Booking</title>
 </head>
 <body>
-
 <div class="modal">
 
-  <form class="modal-content" action="login.php">
+  <form class="modal-content" action="login.php" onsubmit="return validate()" method="post">
     <div class="imgcontainer">
       <img src="Images/trainLogo.png" alt="Avatar" class="avatar">
     </div>
@@ -17,12 +59,12 @@
     <div class="container">
         <h1>Login</h1>
       <label for="uname"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required class="input1">
+      <input type="text" placeholder="Enter Username" name="uname" id="uname" required class="input1">
 
       <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="pwd" required class="input1">
+      <input type="password" placeholder="Enter Password" name="pwd" id="pwd" required class="input1">
 
-      <button type="submit" name="submitbutton">Login</button>
+      <input type="submit" name="submitbutton" class="button" value="Login"/>
 
       <div class="psw">New user?<a href="register.php"> Register Here</a></div>
     </div>
@@ -32,31 +74,3 @@
 
 </body>
 </html>
-
-<?php
-// define variables and set to empty values
-    $name = $password = "";
-
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-       $name = test_input($_POST["uname"]);
-       $email = test_input($_POST["pwd"]);
-    }
-
-    function test_input($data) {
-       $data = trim($data);
-       $data = stripslashes($data);
-       $data = htmlspecialchars($data);
-       return $data;
-    }
-
-    echo "<h2>Your Input:</h2>";
-    echo $name;
-    echo "<br>";
-    echo $email;
-    echo "<br>";
-    echo $website;
-    echo "<br>";
-    echo $comment;
-    echo "<br>";
-    echo $gender;
-?>
