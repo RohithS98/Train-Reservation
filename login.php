@@ -31,7 +31,7 @@ $sql_result = mysqli_query ($conn, $sql) or die ('request "Could not execute SQL
 	function validate()	{
 		var uname1=document.getElementById("uname");
 		var pwd1=document.getElementById("pwd");
-		if (uname1.value.length<6)
+		if (uname1.value.length<1)
 		{
         	alert("Enter valid username");
 			uname.focus();
