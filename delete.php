@@ -1,6 +1,6 @@
 <?php  
-	$connect = mysqli_connect("localhost", "root", "", "testing");
-	$sql = "DELETE FROM tbl_sample WHERE id = '".$_POST["id"]."'";  
+	$connect = mysqli_connect("localhost", "root", "", "traindb");
+	$sql = "DELETE FROM train WHERE trainno = '".$_POST["Train Number"]."'";  
 	if(mysqli_query($connect, $sql))  
 	{  
 		echo 'Data Deleted';  
