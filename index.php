@@ -32,22 +32,28 @@ $(document).ready(function(){
     }  
     fetch_data();  
     $(document).on('click', '#btn_add', function(){  
-        var first_name = $('#first_name').text();  
-        var last_name = $('#last_name').text();  
-        if(first_name == '')  
+        var stationlist = $('#stationlist').text();  
+        var days = $('#days').text();
+	var status = ${'#status'}.text();
+        if(stationlist == '')  
         {  
-            alert("Enter First Name");  
+            alert("Enter Station List");  
             return false;  
         }  
-        if(last_name == '')  
+        if(days == '')  
         {  
-            alert("Enter Last Name");  
+            alert("Enter Days");  
             return false;  
-        }  
+        }
+	if(status == '')  
+        {  
+            alert("Enter Status");  
+            return false;  
+        }
         $.ajax({  
             url:"insert.php",  
             method:"POST",  
-            data:{first_name:first_name, last_name:last_name},  
+            data:{stationlist:stationlist, days:days, status:status},  
             dataType:"text",  
             success:function(data)  
             {  
@@ -70,15 +76,20 @@ $(document).ready(function(){
             }  
         });  
     }  
-    $(document).on('blur', '.first_name', function(){  
+    $(document).on('blur', '.stationlist', function(){  
         var id = $(this).data("id1");  
-        var first_name = $(this).text();  
-        edit_data(id, first_name, "first_name");  
+        var stationlist = $(this).text();  
+        edit_data(id, stationlist, "stationlist");  
     });  
-    $(document).on('blur', '.last_name', function(){  
+    $(document).on('blur', '.days', function(){  
         var id = $(this).data("id2");  
-        var last_name = $(this).text();  
-        edit_data(id,last_name, "last_name");  
+        var days = $(this).text();  
+        edit_data(id, days, "days");  
+    });  
+    $(document).on('blur', '.status', function(){  
+        var id = $(this).data("id3");  
+        var status = $(this).text();  
+        edit_data(id, status, "status");  
     });  
     $(document).on('click', '.btn_delete', function(){  
         var id=$(this).data("id3");  
