@@ -9,7 +9,7 @@ if(!$conn){
 }
 $username=$_POST['uname'];
 $password=$_POST['pwd'];
-$sql = "SELECT * FROM userdetails WHERE user = '$username' AND psw = '$password';";
+$sql = "SELECT * FROM admindetails WHERE user = '$username' AND psw = '$password';";
 $sql_result = mysqli_query ($conn, $sql) or die ('request "Could not execute SQL query" '.$sql);
 		$user = mysqli_fetch_assoc($sql_result);
 		if(!empty($user)){
@@ -53,11 +53,11 @@ $sql_result = mysqli_query ($conn, $sql) or die ('request "Could not execute SQL
 
   <form class="modal-content" action="login.php" onsubmit="return validate()" method="post">
     <div class="imgcontainer">
-      <img src="Images/trainLogo.png" alt="Avatar" class="avatar">
+      <img src="Images/adminLogo.png" alt="Avatar" class="avatar">
     </div>
 
     <div class="container">
-        <h1>Login</h1>
+        <h1>Admin Login</h1>
       <label for="uname"><b>Username</b></label>
       <input type="text" placeholder="Enter Username" name="uname" id="uname" required class="input1">
 
@@ -66,8 +66,7 @@ $sql_result = mysqli_query ($conn, $sql) or die ('request "Could not execute SQL
 
       <input type="submit" name="submitbutton" class="button" value="Login"/>
 
-      <div class="psw">New user?<a href="register.php"> Register Here</a></div>
-	  <div class="lol"><a href="admin.php">Admin Login</a></div>
+	  <div class="lol"><a href="login.php">User Login</a></div>
     </div>
 
   </form>

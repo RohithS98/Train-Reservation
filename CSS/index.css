@@ -1,0 +1,23 @@
+p{
+    padding: 10px;
+    background-color: #4CAF50;
+    color: #4CAF50;
+    display: block;
+    margin: auto;
+    margin-top : 20px;
+    width: 400px;
+
+}
+
+p:hover {
+    opacity: 0.8;
+}
+
+button{
+    background-color: inherit;
+    color: inherit;
+    border: none;
+    display:block;
+    margin:auto;
+    font-size: 20px;
+}
