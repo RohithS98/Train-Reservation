@@ -1,33 +1,28 @@
 <?php  
- $connect = mysqli_connect("localhost", "root", "", "testing");  
+ $connect = mysqli_connect("localhost", "root", "", "traindb");  
  $output = '';  
- $sql = "SELECT * FROM tbl_sample ORDER BY id DESC";  
+ $sql = "SELECT * FROM train ORDER BY trainno";  
  $result = mysqli_query($connect, $sql);  
  $output .= '  
       <div class="table-responsive">  
            <table class="table table-bordered">  
                 <tr>  
-                     <th width="10%">Id</th>  
-                     <th width="40%">First Name</th>  
-                     <th width="40%">Last Name</th>  
-                     <th width="10%">Delete</th>  
+                     <th width="10%">Train#</th>  
+                     <th width="40%">StationList</th>  
+                     <th width="40%">Days</th>  
+                     <th width="10%">Status</th>  
                 </tr>';  
  $rows = mysqli_num_rows($result);
  if($rows > 0)  
- {  
-	  if($rows > 10)
-	  {
-		  $delete_records = $rows - 10;
-		  $delete_sql = "DELETE FROM tbl_sample LIMIT $delete_records";
-		  mysqli_query($connect, $delete_sql);
-	  }
+ {
       while($row = mysqli_fetch_array($result))  
       {  
            $output .= '  
                 <tr>  
-                     <td>'.$row["id"].'</td>  
-                     <td class="first_name" data-id1="'.$row["id"].'" contenteditable>'.$row["first_name"].'</td>  
-                     <td class="last_name" data-id2="'.$row["id"].'" contenteditable>'.$row["last_name"].'</td>  
+                     <td>'.$row["trainno"].'</td>  
+                     <td class="StationList" data-id1="'.$row["trainno"].'" contenteditable>'.$row["StationList"].'</td>  
+                     <td class="Days" data-id2="'.$row["trainno"].'" contenteditable>'.$row["Days"].'</td>
+		     <td class="Status" data-id2="'.$row["trainno"].'" contenteditable>'.$row["Status"].'</td>
                      <td><button type="button" name="delete_btn" data-id3="'.$row["id"].'" class="btn btn-xs btn-danger btn_delete">x</button></td>  
                 </tr>  
            ';  
@@ -35,8 +30,9 @@
       $output .= '  
            <tr>  
                 <td></td>  
-                <td id="first_name" contenteditable></td>  
-                <td id="last_name" contenteditable></td>  
+                <td class="StationList" data-id1="'.$row["trainno"].'" contenteditable></td>  
+                <td class="Days" data-id2="'.$row["trainno"].'" contenteditable></td>
+		<td class="Status" data-id2="'.$row["trainno"].'" contenteditable></td>
                 <td><button type="button" name="btn_add" id="btn_add" class="btn btn-xs btn-success">+</button></td>  
            </tr>  
       ';  
@@ -46,8 +42,9 @@
       $output .= '
 				<tr>  
 					<td></td>  
-					<td id="first_name" contenteditable></td>  
-					<td id="last_name" contenteditable></td>  
+					<td class="StationList" data-id1="'.$row["trainno"].'" contenteditable></td>  
+                     			<td class="Days" data-id2="'.$row["trainno"].'" contenteditable></td>
+		     			<td class="Status" data-id2="'.$row["trainno"].'" contenteditable></td>
 					<td><button type="button" name="btn_add" id="btn_add" class="btn btn-xs btn-success">+</button></td>  
 			   </tr>';  
  }  
