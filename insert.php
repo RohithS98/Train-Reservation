@@ -1,6 +1,6 @@
 <?php  
-$connect = mysqli_connect("localhost", "root", "", "testing");
-$sql = "INSERT INTO tbl_sample(first_name, last_name) VALUES('".$_POST["first_name"]."', '".$_POST["last_name"]."')";  
+$connect = mysqli_connect("localhost", "root", "", "traindb");
+$sql = "INSERT INTO train VALUES('".$_POST["Train Number"]."', '".$_POST["Station List"]."', '".$_POST["Days"]."', '".$_POST["Status"]."')";  
 if(mysqli_query($connect, $sql))  
 {  
      echo 'Data Inserted';  
