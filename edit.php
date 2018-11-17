@@ -1,9 +1,10 @@
 <?php  
-	$connect = mysqli_connect("localhost", "root", "", "testing");
-	$id = $_POST["id"];  
-	$text = $_POST["text"];  
-	$column_name = $_POST["column_name"];  
-	$sql = "UPDATE tbl_sample SET ".$column_name."='".$text."' WHERE id='".$id."'";  
+	$connect = mysqli_connect("localhost", "root", "", "traindb");
+	$trainno = $_POST["Train Number"];  
+	$stationlist = $_POST["Station List"];  
+	$days = $_POST["Days"];
+	$status = $_POST["Status"];
+	$sql = "UPDATE train SET StationList='".$stationlist.", Days='".$days.", Status='".$status."' WHERE trainno='".$trainno."'";  
 	if(mysqli_query($connect, $sql))  
 	{  
 		echo 'Data Updated';  
