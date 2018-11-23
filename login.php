@@ -14,12 +14,14 @@ $sql_result = mysqli_query ($conn, $sql) or die ('request "Could not execute SQL
 		$user = mysqli_fetch_assoc($sql_result);
 		if(!empty($user)){
 			$_SESSION['user_info'] = $user['user'];
+			$_SESSION['user_type'] = 'User';
 			$message='Logged in successfully';
+			echo "<script type='text/javascript'>alert('$message');</script>";
 		}
 		else{
 			$message = 'Wrong username or password.';
+			echo "<script type='text/javascript'>alert('$message');</script>";
 		}
-	echo "<script type='text/javascript'>alert('$message');</script>";
 }
 ?>
 <!DOCTYPE html>
