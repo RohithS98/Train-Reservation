@@ -15,7 +15,7 @@ session_start();
     </head>
     <body>
         <div width="100%">
-            <button type="button" id="logoutButton" style="float:right;-right:20px;">Logout</button>
+            <button type="button" id="logoutButton" style="float:right;-right:20px;" onclick="location.href='/index.php';">Logout</button>
         </div>
         <div width="100%">
             <h2 style="text-align:center;">Train Table</h2>
@@ -48,7 +48,7 @@ $(document).ready(function(){
         var trainnum = $('#tno').text();
         var stationlist = $('#stlist').text();
         var days = $('#day').text();
-	var status = $('#Tstatus').val();
+	    var status = $('#Tstatus').val();
         if(trainnum == ''){
             alert("Enter Train number");
             return false;

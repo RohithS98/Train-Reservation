@@ -16,6 +16,7 @@ $sql_result = mysqli_query ($conn, $sql) or die ('request "Could not execute SQL
 			$_SESSION['user_info'] = $user['user'];
 			$_SESSION['user_type'] = 'User';
 			$message='Logged in successfully';
+			header('Location: /userMain.php');
 			echo "<script type='text/javascript'>alert('$message');</script>";
 		}
 		else{

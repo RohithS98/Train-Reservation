@@ -12,8 +12,8 @@
     <title>Railway Booking</title>
 </head>
 <body>
-<p><a href="login.php"><button>Login</button></a></p>
-<p><a href="register.php"><button>Register</button></a></p>
-<p><a href="admin.php"><button>Admin Login</button></a></p>
+    <p><button onclick="location.href='/login.php';">Login</button></p>
+    <p><button onclick="location.href='/register.php';">Register</button></p>
+    <p><button onclick="location.href='/admin.php';">Admin Login</button></p>
 </body>
 </html>

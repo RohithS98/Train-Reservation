@@ -1,12 +1,10 @@
 p{
     padding: 10px;
     background-color: #4CAF50;
-    color: #4CAF50;
     display: block;
     margin: auto;
     margin-top : 20px;
     width: 400px;
-
 }
 
 p:hover {
@@ -15,9 +13,10 @@ p:hover {
 
 button{
     background-color: inherit;
-    color: inherit;
     border: none;
     display:block;
     margin:auto;
     font-size: 20px;
+    color: #000000;
+    width: 400px;
 }
