@@ -13,7 +13,7 @@ session_start();
     </head>
     <body>
         <p><button onclick="location.href='/book.php';">Book Ticket</button></p>
-        <p><button onclick="location.href='/index.php';">Previous Bookings/Cancellations</button></p>
+        <p><button onclick="location.href='/mainBooking.php';">Previous Bookings/Cancellations</button></p>
         <p><button onclick="location.href='/index.php';">Logout</button></p>
     </body>
 </html>
