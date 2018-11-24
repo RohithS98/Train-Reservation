@@ -42,7 +42,7 @@ $(document).ready(function(){
         var trainnum = $('#tno').text();
         var stationlist = $('#stlist').text();
         var days = $('#day').text();
-	    var status = $('#status').text();
+	var status = $('#Tstatus').val();
         if(trainnum == ''){
             alert("Enter Train number");
             return false;
@@ -103,9 +103,9 @@ $(document).ready(function(){
         var days = $(this).text();
         edit_data(id, days, "days");
     });
-    $(document).on('blur', '.Status', function(){
+    $(document).on('blur', '#Tstatus', function(){
         var id = $(this).data("id4");
-        var status = $(this).text();
+        var status = $(this).val();
         edit_data(id, status, "status");
     });
     $(document).on('click', '.btn_delete', function(){
