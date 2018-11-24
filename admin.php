@@ -16,8 +16,8 @@ if (isset($_POST['submitbutton']))
 		$_SESSION['user_info'] = $user['user'];
 		$_SESSION['user_type'] = 'Admin';
 		$message='Logged in successfully';
+		header('Location: /mainAdmin.php');
 		echo "<script type='text/javascript'>alert('$message');</script>";
-		header('Location: /index.php');
 	}
 	else{
 		$message = 'Wrong username or password.';
@@ -54,7 +54,7 @@ if (isset($_POST['submitbutton']))
 <body>
 <div class="modal">
 
-  <form class="modal-content" action="login.php" onsubmit="return validate()" method="post">
+  <form class="modal-content" action="admin.php" onsubmit="return validate()" method="post">
     <div class="imgcontainer">
       <img src="Images/adminLogo.png" alt="Avatar" class="avatar">
     </div>
