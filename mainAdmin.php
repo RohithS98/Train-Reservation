@@ -14,6 +14,12 @@ session_start();
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     </head>
     <body>
+        <div width="100%">
+            <button type="button" id="logoutButton" style="float:right;-right:20px;">Logout</button>
+        </div>
+        <div width="100%">
+            <h2 style="text-align:center;">Train Table</h2>
+        </div>
         <div class="container">
             <br />
             <br />
@@ -83,8 +89,8 @@ $(document).ready(function(){
             data:{id:id, text:text, column_name:column_name},
             dataType:"text",
             success:function(data){
-                //alert(data);
-				$('#result').html("<div class='alert alert-success'>"+data+"</div>");
+                alert(data);
+				//$('#result').html("<div class='alert alert-success'>"+data+"</div>");
             }
         });
     }
