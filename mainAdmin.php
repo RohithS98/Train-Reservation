@@ -14,6 +14,7 @@ session_start();
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     </head>
     <body>
+    	<h1> <center>Add/Delete/Modify Train Record </center></h1>
         <div width="100%">
             <button type="button" id="logoutButton" style="float:right;-right:20px;" onclick="location.href='/index.php';">Logout</button>
         </div>
