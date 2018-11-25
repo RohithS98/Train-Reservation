@@ -1,5 +1,5 @@
 <?php
- $connect = mysqli_connect("localhost", "root", "cs16b026", "traindb");
+ $connect = mysqli_connect("localhost", "root", "25285618", "traindb");
  if(!$connect){
      echo "<script type='text/javascript'>alert('Database failed');</script>";
      die('Could not connect: '.mysqli_connect_error());
@@ -40,7 +40,6 @@
 			 </select>';
 		     }
 		     $output .= '</td>
-                     <td><button type="button" name="delete_btn" data-id5="'.$row["trainno"].'" class="btn btn-xs btn-danger btn_delete">x</button></td>
                 </tr>
            ';
       }
