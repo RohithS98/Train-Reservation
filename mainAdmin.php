@@ -9,23 +9,25 @@ session_start();
 <!DOCTYPE html>
 <html>
     <head>
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="CSS/booking.css">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     </head>
     <body>
-    	<h1> <center>Add/Delete/Modify Train Record </center></h1>
         <div width="100%">
-            <button type="button" id="logoutButton" style="float:right;-right:20px;" onclick="location.href='/index.php';">Logout</button>
+            <button type="button" class="btn btn-primary" id="logoutButton" style="float:right;margin:10px;" onclick="location.href='/index.php';">Logout</button>
         </div>
-        <div width="100%">
+    	<h1 class="display-3"> <center> Add/Delete/Modify Train Record </center></h1>
+
+        <div width="100%" style="margin-top: 5rem;">
             <h2 style="text-align:center;">Train Table</h2>
         </div>
         <div class="container">
-            <br />
-            <br />
-			<br />
-			<div class="table-responsive">
+
+			<div class="table-responsive table-striped" >
 				<span id="result"></span>
 				<div id="live_data"></div>
 			</div>
@@ -91,10 +93,30 @@ $(document).ready(function(){
             dataType:"text",
             success:function(data){
                 alert(data);
+                fetch_data();
 				//$('#result').html("<div class='alert alert-success'>"+data+"</div>");
             }
         });
     }
+
+    function edit_data2(id, text, column_name)
+    {
+        $.ajax({
+            url:"cancel.php",
+            method:"POST",
+            data:{id:id, text:text, column_name:column_name},
+            dataType:"text",
+            success:function(data){
+                fetch_data();
+				//$('#result').html("<div class='alert alert-success'>"+data+"</div>");
+            },
+            error: function(jqXHR, textStatus, errorThrown){
+                alert(textStatus, errorThrown);
+                console.log(jqXHR,textStatus,errorThrown);
+            }
+        });
+    }
+
     $(document).on('blur', '.TrainNo', function(){
         var id = $(this).data("id1");
         var trainnum = $(this).text();
@@ -113,24 +135,7 @@ $(document).ready(function(){
     $(document).on('blur', '#Tstatus', function(){
         var id = $(this).data("id4");
         var status = $(this).val();
-        edit_data(id, status, "status");
-    });
-    $(document).on('click', '.btn_delete', function(){
-        var id=$(this).data("id5");
-        var stq = "hello";
-        if(confirm("Are you sure you want to delete train "+id+"?"))
-        {
-            $.ajax({
-                url:"delete.php",
-                method:"POST",
-                data:{Trainnum:id},
-                dataType:"text",
-                success:function(data){
-                    alert(data);
-                    fetch_data();
-                }
-            });
-        }
+        edit_data2(id, status, "status");
     });
 });
 </script>

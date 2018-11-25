@@ -2,7 +2,7 @@
 session_start();
 if (isset($_POST['submitbutton']))
 {
-	$conn = mysqli_connect("localhost","root","cs16b026","traindb");
+	$conn = mysqli_connect("localhost","root","passw0rd","traindb");
 if(!$conn){
 	echo "<script type='text/javascript'>alert('Database failed');</script>";
   	die('Could not connect: '.mysqli_connect_error());
@@ -30,6 +30,7 @@ $sql_result = mysqli_query ($conn, $sql) or die ('request "Could not execute SQL
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="CSS/login.css">
+
 <script type="text/javascript">
 	function validate()	{
 		var uname1=document.getElementById("uname");

@@ -1,11 +1,13 @@
 <?php
- $connect = mysqli_connect("localhost", "root", "cs16b026", "traindb");
+session_start();
+ $connect = mysqli_connect("localhost", "root", "passw0rd", "traindb");
  if(!$connect){
      echo "<script type='text/javascript'>alert('Database failed');</script>";
      die('Could not connect: '.mysqli_connect_error());
  }
  $output = '';
- $sql = "SELECT * FROM history ORDER BY ticketno";
+ $username = $_SESSION['user_info'];
+ $sql = "SELECT * FROM history WHERE username = '$username' ORDER BY ticketno;";
  $result = mysqli_query($connect, $sql);
  $output .= '
       <div class="table-responsive">
