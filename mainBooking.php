@@ -14,6 +14,10 @@ session_start();
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     </head>
     <body>
+        <div width="100%">
+            <button type="button" id="logoutButton" style="float:right;margin-right:20px;" onclick="location.href='/index.php';">Logout</button>
+            <button type="button" id="backButton" style="float:right;margin-right:20px;" onclick="location.href='/userMain.php';">Back</button>
+        </div>
     	<h1> <center> Previous Ticket/Cancellations </center> </h1>
         <div class="container">
             <br />
@@ -34,6 +38,7 @@ $(document).ready(function(){
             url:"booking_history.php",
             method:"POST",
             success:function(data){
+                console.log(data);
 				$('#live_data').html(data);
             }
         });

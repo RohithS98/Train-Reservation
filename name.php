@@ -1,5 +1,5 @@
 <?php
-$connect = mysqli_connect("localhost", "root", "cs16b026", "traindb");
+$connect = mysqli_connect("localhost", "root", "25285618", "traindb");
 $number = count($_POST["name"]);
 if($number > 1)
 {

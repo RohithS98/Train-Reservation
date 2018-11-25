@@ -12,7 +12,7 @@ session_start();
         <title>Railway Booking</title>
     </head>
     <body>
-        <p><button onclick="location.href='/book.php';">Book Ticket</button></p>
+        <p><button onclick="location.href='/plan.php';">Book Ticket</button></p>
         <p><button onclick="location.href='/mainBooking.php';">Previous Bookings/Cancellations</button></p>
         <p><button onclick="location.href='/index.php';">Logout</button></p>
     </body>

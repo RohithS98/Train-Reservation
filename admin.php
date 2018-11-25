@@ -2,7 +2,7 @@
 session_start();
 if (isset($_POST['submitbutton']))
 {
-	$conn = mysqli_connect("localhost","root","cs16b026","traindb");
+	$conn = mysqli_connect("localhost","root","25285618","traindb");
 	if(!$conn){
 		echo "<script type='text/javascript'>alert('Database failed');</script>";
 	  	die('Could not connect: '.mysqli_connect_error());

@@ -39,6 +39,36 @@ INSERT INTO `admindetails` VALUES ('rohith','abcd'),('q','1234');
 UNLOCK TABLES;
 
 --
+-- Table structure for table `history`
+--
+
+DROP TABLE IF EXISTS `history`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `history` (
+  `ticketno` varchar(20) NOT NULL,
+  `date` date DEFAULT NULL,
+  `status` varchar(20) DEFAULT NULL,
+  `username` varchar(20) DEFAULT NULL,
+  `trainno` varchar(20) DEFAULT NULL,
+  `cost` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ticketno`),
+  KEY `username` (`username`),
+  CONSTRAINT `history_ibfk_1` FOREIGN KEY (`username`) REFERENCES `userdetails` (`user`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `history`
+--
+
+LOCK TABLES `history` WRITE;
+/*!40000 ALTER TABLE `history` DISABLE KEYS */;
+INSERT INTO `history` VALUES ('32486052261','2018-11-11','Cancelled','rohith','1',300),('41471453844','2018-11-08','Cancelled','q','1',300),('73925847397','2018-11-08','Confirmed','q','2',400),('82625788515','2018-11-06','Cancelled','q','1',200);
+/*!40000 ALTER TABLE `history` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `train`
 --
 
@@ -60,7 +90,7 @@ CREATE TABLE `train` (
 
 LOCK TABLES `train` WRITE;
 /*!40000 ALTER TABLE `train` DISABLE KEYS */;
-INSERT INTO `train` VALUES ('4','a1,a2,s2','T,Th','On');
+INSERT INTO `train` VALUES ('1','a,b,c,d,e','Sun,Tue,Thu','Cancel'),('2','a,e,d','Mon,Tue,Thu','On'),('3','f,g,h','Tue,Wed','On'),('4','a,b,c,d,e','Tue,Thu,Fri','Cancel'),('5','q,w,e,l,k','Mon','Cancel');
 /*!40000 ALTER TABLE `train` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -87,7 +117,7 @@ CREATE TABLE `userdetails` (
 
 LOCK TABLES `userdetails` WRITE;
 /*!40000 ALTER TABLE `userdetails` DISABLE KEYS */;
-INSERT INTO `userdetails` VALUES ('cgnfd','swgfvb',434,34,223),('rohith','abcd',123123123123,9938846728,600);
+INSERT INTO `userdetails` VALUES ('cgnfd','swgfvb',434,34,223),('q','1234',82828272,2993097282723,989831),('rohith','abcd',123123123123,9938846728,300);
 /*!40000 ALTER TABLE `userdetails` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -100,4 +130,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-11-24 12:03:12
+-- Dump completed on 2018-11-25 18:29:59

@@ -16,7 +16,7 @@ session_start();
     <body>
     	<h1> <center>Add/Delete/Modify Train Record </center></h1>
         <div width="100%">
-            <button type="button" id="logoutButton" style="float:right;-right:20px;" onclick="location.href='/index.php';">Logout</button>
+            <button type="button" id="logoutButton" style="float:right;margin-right:20px;" onclick="location.href='/index.php';">Logout</button>
         </div>
         <div width="100%">
             <h2 style="text-align:center;">Train Table</h2>
@@ -91,10 +91,30 @@ $(document).ready(function(){
             dataType:"text",
             success:function(data){
                 alert(data);
+                fetch_data();
 				//$('#result').html("<div class='alert alert-success'>"+data+"</div>");
             }
         });
     }
+
+    function edit_data2(id, text, column_name)
+    {
+        $.ajax({
+            url:"cancel.php",
+            method:"POST",
+            data:{id:id, text:text, column_name:column_name},
+            dataType:"text",
+            success:function(data){
+                fetch_data();
+				//$('#result').html("<div class='alert alert-success'>"+data+"</div>");
+            },
+            error: function(jqXHR, textStatus, errorThrown){
+                alert(textStatus, errorThrown);
+                console.log(jqXHR,textStatus,errorThrown);
+            }
+        });
+    }
+
     $(document).on('blur', '.TrainNo', function(){
         var id = $(this).data("id1");
         var trainnum = $(this).text();
@@ -113,24 +133,7 @@ $(document).ready(function(){
     $(document).on('blur', '#Tstatus', function(){
         var id = $(this).data("id4");
         var status = $(this).val();
-        edit_data(id, status, "status");
-    });
-    $(document).on('click', '.btn_delete', function(){
-        var id=$(this).data("id5");
-        var stq = "hello";
-        if(confirm("Are you sure you want to delete train "+id+"?"))
-        {
-            $.ajax({
-                url:"delete.php",
-                method:"POST",
-                data:{Trainnum:id},
-                dataType:"text",
-                success:function(data){
-                    alert(data);
-                    fetch_data();
-                }
-            });
-        }
+        edit_data2(id, status, "status");
     });
 });
 </script>
