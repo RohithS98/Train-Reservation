@@ -64,7 +64,7 @@ CREATE TABLE `history` (
 
 LOCK TABLES `history` WRITE;
 /*!40000 ALTER TABLE `history` DISABLE KEYS */;
-INSERT INTO `history` VALUES ('32486052261','2018-11-11','Cancelled','rohith','1',300),('41471453844','2018-11-08','Cancelled','q','1',300),('73925847397','2018-11-08','Confirmed','q','2',400),('82625788515','2018-11-06','Cancelled','q','1',200);
+INSERT INTO `history` VALUES ('12143907519','2018-12-04','Cancelled','q','2',1500),('40817734003','2018-11-27','Cancelled','q','12164',400),('41471453844','2018-11-08','Cancelled','q','1',300),('49823515219','2019-01-07','Confirmed','rohith','12348',300),('59665951607','2018-11-08','Cancelled','q','2',700),('70436557917','2018-12-01','Cancelled','rohith','24568',300),('73925847397','2018-11-08','Cancelled','q','2',400),('82625788515','2018-11-06','Cancelled','q','1',200),('89239882761','2018-11-06','Cancelled','q','1234',300),('91468275422','2018-11-06','Cancelled','q','2',200);
 /*!40000 ALTER TABLE `history` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -77,9 +77,10 @@ DROP TABLE IF EXISTS `train`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `train` (
   `trainno` varchar(10) NOT NULL,
-  `StationList` varchar(100) DEFAULT NULL,
-  `days` varchar(30) DEFAULT NULL,
+  `StationList` varchar(200) DEFAULT NULL,
+  `days` varchar(50) DEFAULT NULL,
   `status` varchar(12) DEFAULT NULL,
+  `fare` int(11) DEFAULT NULL,
   PRIMARY KEY (`trainno`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -90,7 +91,7 @@ CREATE TABLE `train` (
 
 LOCK TABLES `train` WRITE;
 /*!40000 ALTER TABLE `train` DISABLE KEYS */;
-INSERT INTO `train` VALUES ('1','a,b,c,d,e','Sun,Tue,Thu','Cancel'),('2','a,e,d','Mon,Tue,Thu','On'),('3','f,g,h','Tue,Wed','On'),('4','a,b,c,d,e','Tue,Thu,Fri','Cancel'),('5','q,w,e,l,k','Mon','Cancel');
+INSERT INTO `train` VALUES ('12164','chennai,renigunta,mumbai','Sun,Mon,Tue,Wed,Thu,Fri,Sat','On',100),('12348','delhi,bhopal,hyderabad,tirupati','Sun,Tue,Thu,Fri','On',100),('21435','chennai,renigunta,tirupati,hyderabad','Tue,Thu,Sat','On',100),('24568','tirupati,bangalore,pune,mumbai','Mon,Tue,Wed,Sat','On',100),('36574','tirupati,bangalore,hyderabad,jhansi,delhi,jaipur','Sun,Tue,Wed','On',100);
 /*!40000 ALTER TABLE `train` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -117,7 +118,7 @@ CREATE TABLE `userdetails` (
 
 LOCK TABLES `userdetails` WRITE;
 /*!40000 ALTER TABLE `userdetails` DISABLE KEYS */;
-INSERT INTO `userdetails` VALUES ('cgnfd','swgfvb',434,34,223),('q','1234',82828272,2993097282723,989831),('rohith','abcd',123123123123,9938846728,300);
+INSERT INTO `userdetails` VALUES ('q','1234',765287349812,2993097282,3631),('rohith','abcd',123123123123,9938846728,1264);
 /*!40000 ALTER TABLE `userdetails` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -130,4 +131,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-11-25 18:29:59
+-- Dump completed on 2018-11-30  0:10:40
